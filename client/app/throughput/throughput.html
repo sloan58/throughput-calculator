@@ -1,0 +1,62 @@
+<header class="hero-unit" id="banner">
+    <div class="row">
+        <div class="container">
+            <div class="col-md-3">
+                <h3>IDC Throughput Tool</h3>
+            </div>
+            <form class="todo-form">
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="Link ID (Name)" ng-model="linkId">
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" placeholder="Window size in KB" ng-model="winSz_KB">
+                </div>
+                <div class="col-md-3">
+                    <p class="input-group">
+                        <input type="text" class="form-control" placeholder="Network Latency in ms" ng-model="netLat_ms">
+                          <span class="input-group-btn">
+                            <button type="submit" class="btn btn-success" ng-click="addThroughput()">Add New</button>
+                          </span>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Throughput Calculations:</h1>
+            <div class="col-lg-12">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Link Identifier</th>
+                        <th>Win Size (KB)</th>
+                        <th>Win Size (B)</th>
+                        <th>Win Size (b)</th>
+                        <th>Net Latency (ms)</th>
+                        <th>Net Latency</th>
+                        <th>Max throughput (bps)</th>
+                        <th>Max throughput (Mbps)</th>
+                    </tr>
+                    </thead>
+                    <tbody ng-model="throughput">
+                    <tr ng-repeat="tp in throughputs">
+                        <td><a href="#">{{ tp.linkId }}</a></td>
+                        <td>{{ tp.winSz_KB }}</td>
+                        <td>{{ tp.winSz_B }}</td>
+                        <td>{{ tp.winSz_b }}</td>
+                        <td>{{ tp.netLat_ms }}</td>
+                        <td>{{ tp.netLat }}</td>
+                        <td>{{ tp.throughput_bps }}</td>
+                        <td>{{ tp.throughput_Mbps }}</td>
+                        <td><button type="button" class="close" ng-click="deleteThroughput(tp)">&times;</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
